@@ -1,15 +1,15 @@
 <?php
-include './Realisateur.php';
-include_once './Connexion.php';
+include_once 'php/Realisateur.php';
+include_once 'php/Connexion.php';
 
 class RealisateurDao {
 
     public function ajouterRealisateur($Realisateur) {
         $conn = new Connexion();
         try {
-            $sth = $conn->getConn()->prepare("INSERT INTO Realisateur (Id, Nom, Prenom) VALUES (:Id, :Nom, :Prenom)");
+            $sth = $conn->getConn()->prepare("INSERT INTO Realisateur ( Nom, Prenom) VALUES (:Nom, :Prenom)");
             $sth->execute(array (
-                'Id' => $Realisateur->getId(),
+                
                 'Nom' => $Realisateur->getNom(),
                 'Prenom' => $Realisateur->getPrenom(),
             ));
@@ -80,12 +80,19 @@ class RealisateurDao {
     public function supprimerRealisateur($value, $property) {
         $conn = new Connexion();
         try {
-            $sql = "DELETE FROM Realisateur WHERE $property = :value";
-            $stmt = $conn->getConn()->prepare($sql);
-            $stmt->execute([':value' => $value]);
-            return 'Record deleted successfully.';
+           
+            $sql = "DELETE FROM Film WHERE id_realisateur = :value";
+            $delete = $conn->getConn()->prepare($sql);
+            $delete->execute([':value' => $value]);
+
+            $sqlD= "DELETE FROM Realisateur WHERE $property = :value";
+            $st = $conn->getConn()->prepare($sqlD);
+            $st->execute([':value' => $value]);
+    
+            return 'deleted successfully.';
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }
     }
+  
 }

@@ -1,7 +1,7 @@
 <?php
 // Database connection constants
 define('DB_HOST', '127.0.0.1'); 
-define('DB_NAME', 'tpnote');
+define('DB_NAME', 'tp');
 define('DB_PORT', '3306'); 
 define('DB_USER', 'root');
 define('DB_PSWD', ''); 

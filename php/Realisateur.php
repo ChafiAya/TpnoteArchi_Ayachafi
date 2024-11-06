@@ -7,8 +7,6 @@ class Realisateur{
     private string $Prenom;
     
     
-
-
     public function getId(): int
     {
         return $this->Id;

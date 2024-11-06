@@ -7,9 +7,9 @@ class UtilisateurDao {
     public function ajouterUtilisateur($Utilisateur) {
         $conn = new Connexion();
         try {
-            $sth = $conn->getConn()->prepare("INSERT INTO Utilisateur (Id, Nom, Prenom, Email, mdp, id_film) VALUES (:Id, :Nom, :Prenom, :Email, :mdp, :id_film)");
+            $sth = $conn->getConn()->prepare("INSERT INTO Utilisateur (Nom, Prenom, Email, mdp, id_film) VALUES ( :Nom, :Prenom, :Email, :mdp, :id_film)");
             $sth->execute(array (
-                'IdFilm' => $Utilisateur->getIdFilm(),
+               
                 'Nom' => $Utilisateur->getNom(),
                 'Id' => $Utilisateur->getId(),
                 'Prenom' => $Utilisateur->getPrenom(),

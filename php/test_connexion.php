@@ -1,6 +1,6 @@
 <?php
 
-include 'php/cnx/Connexion.php'; 
+include 'php/Connexion.php'; 
 $connexion = new Connexion();
 $dbConnection = $connexion->getConn();
 try {

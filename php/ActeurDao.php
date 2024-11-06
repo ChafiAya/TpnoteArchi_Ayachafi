@@ -7,9 +7,9 @@ class ActeurDao {
     public function ajouterActeur($Acteur) {
         $conn = new Connexion();
         try {
-            $sth = $conn->getConn()->prepare("INSERT INTO Acteur (id, nom, prenom, roleA, dateNaissance) VALUES (:id, :nom, :prenom, :roleA, :dateNaissance)");
+            $sth = $conn->getConn()->prepare("INSERT INTO Acteur ( nom, prenom, roleA, dateNaissance) VALUES (:nom, :prenom, :roleA, :dateNaissance)");
             $sth->execute(array (
-                'Id' => $Acteur->getId(),
+               
                 'Nom' => $Acteur->getNom(),
                 'Prenom' => $Acteur->getPrenom(),
                 'RoleA' => $Acteur->getRoleA(),

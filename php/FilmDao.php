@@ -7,9 +7,9 @@ class FilmDao {
     public function ajouterFilm($Film) {
         $conn = new Connexion();
         try {
-            $sth = $conn->getConn()->prepare("INSERT INTO Film (Id, titre, durée, id_realisateur, id_acteur, annéeS) VALUES (:Id, :titre, :durée, :id_realisateur, :id_acteur, :annéeS)");
+            $sth = $conn->getConn()->prepare("INSERT INTO Film (titre, durée, id_realisateur, id_acteur, annéeS) VALUES (:titre, :durée, :id_realisateur, :id_acteur, :annéeS)");
             $sth->execute(array (
-                'Id' => $Film->getId(),
+               
                 'Titre' => $Film->getTitre(),
                 'Durée' => $Film->getDurée(),
                 'IdRealisateur' => $Film->getIdRealisateur(),
