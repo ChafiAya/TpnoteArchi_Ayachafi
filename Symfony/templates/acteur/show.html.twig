@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acteur{% endblock %}
+
+{% block body %}
+    <h1>Acteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ acteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_acteur</th>
+                <td>{{ acteur.idActeur }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ acteur.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ acteur.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>RoleA</th>
+                <td>{{ acteur.roleA }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ acteur.datenaissance ? acteur.datenaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_acteur_index') }}">back to list</a>
+
+    <a href="{{ path('app_acteur_edit', {'id': acteur.id}) }}">edit</a>
+
+    {{ include('acteur/_delete_form.html.twig') }}
+{% endblock %}
